@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Micro LLM – Friedrich Nietzsche</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .notice {
+      background: #fff3cd;
+      border-left: 6px solid #ffa502;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      max-width: 800px;
+      border-radius: 8px;
+    }
+
+    .model-info {
+      background: #e8f0fe;
+      border-left: 6px solid #4285f4;
+      padding: 1rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .model-info h2 {
+      margin-top: 0;
+    }
+
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background: #333;
+      color: white;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .chat-body {
+      padding: 1rem;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-right: 1px solid #eee;
+      font-size: 0.95rem;
+    }
+
+    .chat-input button {
+      padding: 0.75rem 1rem;
+      border: none;
+      background: #333;
+      color: white;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .chat-message {
+      margin-bottom: 0.5rem;
+    }
+
+    .thinking {
+      font-style: italic;
+      color: #888;
+    }
+
+    a {
+      color: #3367d6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Micro LLM – Friedrich Nietzsche</h1>
+
+<p style="margin-top: -0.5rem; font-size: 1rem; color: #555;">
+  ❤️ Made with love by <strong>MacXDev</strong> –
+  <a href="https://macxdev.github.io" target="_blank">macxdev.github.io</a> ·
+  <a href="https://www.linkedin.com/in/anujmcfarland/" target="_blank">LinkedIn</a>
+</p>
+
+  <p>
+    What happens when you shrink GPT-2 to one-third its size and feed it Nietzsche? This project answers that.
+    The standard GPT-2 "small" model has 12 layers, 768 hidden units, and ~124 million parameters, weighing in at around 500MB.
+    In contrast, <strong>this Micro LLM uses only 4 layers</strong> and comes in at a svelte <strong>~60MB</strong>. It's lean, it's chaotic, and it still manages to sound philosophical (sometimes).
+  </p>
+
+  <p>
+    This is an experimental small-scale language model trained on the writings of Friedrich Nietzsche using GPT-2 (4-layer). The model was trained for 300 epochs and fine-tuned to serve as a minimalist text generator.
+  </p>
+
+  <p>
+    Due to limitations in running even reduced LLMs in-browser using TensorFlow.js or ONNX, and my own technical constraints, the browser-based approach was only partially successful and not production-ready.
+  </p>
+
+  <p>
+    Instead, this model runs on an <strong>Azure Web App (Free Tier)</strong>, hosted on minimal hardware. It might take a few seconds to respond if the service is cold — please try more than once if needed.
+  </p>
+
+  <p>
+    Additionally, the same model has been successfully tested on a <strong>Raspberry Pi 4 Model B</strong> — proving the feasibility of local low-cost LLM inference.
+  </p>
+
+  <div class="notice">
+    ⚠️ <strong>Disclaimer:</strong> This is a 100% experimental side project. The chatbot may occasionally wax poetic, loop endlessly, or become existentially confused. You've been warned.
+  </div>
+<div class="use-cases" style="margin-top: 2rem;">
+  <h2>💡 Use Cases</h2>
+
+  <h3>📜 For This Nietzsche Micro LLM</h3>
+  <ul style="line-height: 1.8;">
+    <li><strong>Literary Inspiration</strong> – Generate Nietzsche-style text for creative writing or thought experiments.</li>
+    <li><strong>Philosophy Chatbot Companion</strong> – A chatbot that responds like a moody 19th-century philosopher.</li>
+    <li><strong>Educational Tool</strong> – Demonstrate how small LLMs behave when trained on specific philosophical corpora.</li>
+    <li><strong>Offline Local Inference</strong> – Run it on a Raspberry Pi or minimal Azure tier to prove that tiny LLMs can still think deep thoughts.</li>
+    <li><strong>Text-based Art Installations</strong> – Connect to text-to-speech and display or speak "Nietzschean" output in real-time.</li>
+  </ul>
+
+  <h3>🧠 Use Cases for Micro LLMs in General</h3>
+  <ul style="line-height: 1.8;">
+    <li><strong>On-Device AI</strong> – Run lightweight models on smartphones, Raspberry Pi, or embedded hardware with no cloud dependency.</li>
+    <li><strong>Edge Computing</strong> – Deploy near sensors or IoT devices for localized natural language tasks without latency or privacy risks.</li>
+    <li><strong>Cost-Efficient Deployments</strong> – Serve models on free or ultra-low-cost infrastructure like Azure Free Tier or AWS Lambda.</li>
+    <li><strong>Custom Domain-Specific AI</strong> – Fine-tune micro LLMs on niche datasets (e.g., legal, medical, historical texts).</li>
+    <li><strong>Conversational Interfaces</strong> – Add personality-driven or task-specific dialogue to apps, games, or robots.</li>
+    <li><strong>Rapid Prototyping</strong> – Test ideas quickly without needing powerful GPUs or expensive infrastructure.</li>
+  </ul>
+</div>
+  <div class="model-info">
+    <h2>🧠 Model Info</h2>
+    <ul>
+      <li><strong>Model type:</strong> GPT-2 (4-layer, ~60MB variant)</li>
+      <li><strong>File:</strong> <code>model.safetensors</code> – 58.8 MB</li>
+      <li><strong>Training:</strong> 300 epochs on Nietzsche’s works</li>
+      <li><strong>Hardware:</strong> NVIDIA RTX 3060 (14 hours of deep philosophical sweat)</li>
+      <li><strong>Deployment:</strong> Azure Web App (Free Tier) + Raspberry Pi 4</li>
+      <li><strong>Livestream proof:</strong> <a href="https://www.youtube.com/live/-H2iYxhBgFc" target="_blank">Watch the GPU question its existence</a> 🔥</li>
+    </ul>
+    <p><em>Small brain? No. Micro LLM. And it quotes Nietzsche.</em></p>
+  </div>
+
+  <div class="chatbox">
+    <div class="chat-header">NietzscheBot</div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message">Start your sentence and Nietzsche shall finish it.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="e.g. Human is..." />
+      <button onclick="sendPrompt()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendPrompt() {
+      const input = document.getElementById('userInput').value.trim();
+      const chatBody = document.getElementById('chatBody');
+
+      if (!input) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-message';
+      userMsg.textContent = '> ' + input;
+      chatBody.appendChild(userMsg);
+
+      const thinkingMsg = document.createElement('div');
+      thinkingMsg.className = 'chat-message thinking';
+      thinkingMsg.textContent = 'Thinking...';
+      chatBody.appendChild(thinkingMsg);
+
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      try {
+        const res = await fetch(
+          `https://macmicrollm-dgg4c8hyajacgwd3.westus-01.azurewebsites.net/generate?prompt=${encodeURIComponent(input)}`
+        );
+        const data = await res.json();
+
+        thinkingMsg.remove();
+
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-message';
+        botMsg.textContent = data.generated_text || "[No response]";
+        chatBody.appendChild(botMsg);
+      } catch (err) {
+        thinkingMsg.remove();
+        const errMsg = document.createElement('div');
+        errMsg.className = 'chat-message';
+        errMsg.textContent = "Error connecting to the model. Please try again.";
+        chatBody.appendChild(errMsg);
+      }
+
+      chatBody.scrollTop = chatBody.scrollHeight;
+      document.getElementById('userInput').value = '';
+    }
+  </script>
+</body>
+</html>
